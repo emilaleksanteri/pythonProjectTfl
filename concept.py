@@ -5,49 +5,60 @@ import sched
 import time
 
 
-def getStationData(scheduler):
-    scheduler.enter(60, 1, getStationData, (scheduler,))
-    try:
-        url = "https://api.tfl.gov.uk/Line/district/Arrivals"
+class StationTimes:
+    def __init__(self, lineId, stationName, platformName1, platformName2):
+        self.lineId = lineId
+        self.stationName = stationName
+        self.platformName1 = platformName1
+        self.platformName2 = platformName2
 
-        hdr = {
-            # Request headers
-            'Cache-Control': 'no-cache',
-        }
+    def getStationData(self):
+        try:
+            url = "https://api.tfl.gov.uk/Line/" + self.lineId + "/Arrivals"
 
-        req = urllib.request.Request(url, headers=hdr)
+            hdr = {
+                # Request headers
+                'Cache-Control': 'no-cache',
+            }
 
-        req.get_method = lambda: 'GET'
-        response = urllib.request.urlopen(req)
-    except Exception as e:
-        print(e)
+            req = urllib.request.Request(url, headers=hdr)
 
-    asDict = json.loads(response.read().decode())
-    districtPlt1 = []
-    districtPlt2 = []
+            req.get_method = lambda: 'GET'
+            response = urllib.request.urlopen(req)
+        except Exception as e:
+            print(e)
 
-    for station in asDict:
-        if station["stationName"] == "Aldgate East Underground Station":
-            if station["platformName"] == "Westbound - Platform 1":
-                districtPlt1.append({
-                    "current": station["currentLocation"],
-                    "from_platform": station["platformName"],
-                    "final_stop": station["towards"],
-                    "expected_arrival": round(station["timeToStation"]/60)
-                })
+        asDict = json.loads(response.read().decode())
 
-            if station["platformName"] == "Eastbound - Platform 2":
-                districtPlt2.append({
-                    "current": station["currentLocation"],
-                    "from_platform": station["platformName"],
-                    "final_stop": station["towards"],
-                    "expected_arrival": round(station["timeToStation"]/60)
-                })
+        platform1 = []
+        platform2 = []
 
-    print(districtPlt1)
+        for station in asDict:
+            if station["stationName"] == self.stationName:
+                if station["platformName"] == self.platformName1:
+                    platform1.append({
+                        "current": station["currentLocation"],
+                        "from_platform": station["platformName"],
+                        "final_stop": station["towards"],
+                        "expected_arrival": round(station["timeToStation"]/60)
+                    })
+
+                if station["platformName"] == self.platformName2:
+                    platform2.append({
+                        "current": station["currentLocation"],
+                        "from_platform": station["platformName"],
+                        "final_stop": station["towards"],
+                        "expected_arrival": round(station["timeToStation"]/60)
+                    })
+
+        return platform1, platform2
 
 
-my_scheduler = sched.scheduler(time.time, time.sleep)
-getStationData(my_scheduler)
-my_scheduler.enter(60, 1, getStationData, (my_scheduler,))
-my_scheduler.run()
+def main():
+    district = StationTimes("district", "Aldgate East Underground Station",
+                            "Westbound - Platform 1", "Eastbound - Platform 2")
+    plt1, plt2 = district.getStationData()
+    print(plt1)
+
+
+main()
