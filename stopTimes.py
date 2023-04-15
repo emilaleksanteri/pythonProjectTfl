@@ -38,4 +38,7 @@ class StopTimes:
             }
             stopData.append(dataDict)
 
-        return stopData
+        # returns dict list as sorted by time to arrival
+        stopDataSorted = sorted(stopData, key=lambda d: d['timeToStationMins'])
+
+        return stopDataSorted
