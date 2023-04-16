@@ -263,29 +263,29 @@ def showTimesForStop(stationData, stationName, stopLetter):
                                 manager=manager, object_id=ObjectID(class_id='@menuItemText'))
 
             if data["timeToStationMins"] < 15:
-                line = UIPanel(relative_rect=pygame.Rect((400, yAxisBusses + 40), (300, 5)),
+                line = UIPanel(relative_rect=pygame.Rect((500, yAxisBusses + 40), (300, 5)),
                                manager=manager, object_id=ObjectID(class_id='@busNumber'))
 
-                stopToLine = UIPanel(relative_rect=pygame.Rect((696, yAxisBusses + 25), (5, 30)),
+                stopToLine = UIPanel(relative_rect=pygame.Rect((796, yAxisBusses + 25), (5, 30)),
                                      manager=manager, object_id=ObjectID(class_id='@busNumber'))
 
-                stopLabel = UILabel(relative_rect=pygame.Rect((710, yAxisBusses + 30), (100, 20)),
+                stopLabel = UILabel(relative_rect=pygame.Rect((810, yAxisBusses + 30), (100, 20)),
                                     text='Stop',
                                     manager=manager, object_id=ObjectID(class_id='@menuItemText'))
 
                 grid_image = pygame_gui.elements.UIImage(
                     relative_rect=pygame.Rect(
-                        (700 - (data["timeToStationMins"] * 20) - 42, yAxisBusses - 5), (42, 46)),
+                        (800 - (data["timeToStationMins"] * 20) - 42, yAxisBusses - 5), (42, 46)),
                     image_surface=bus,
                     manager=manager,
                 )
 
-                timeToStation = UILabel(relative_rect=pygame.Rect((500, yAxisBusses + 50), (300, 20)),
+                timeToStation = UILabel(relative_rect=pygame.Rect((600, yAxisBusses + 50), (300, 20)),
                                         text=str(data["timeToStationMins"]) +
                                         ' minutes away',
                                         manager=manager, object_id=ObjectID(class_id='@menuItemText'))
             else:
-                timeToStation = UILabel(relative_rect=pygame.Rect((400, yAxisBusses + 40), (300, 20)),
+                timeToStation = UILabel(relative_rect=pygame.Rect((500, yAxisBusses + 40), (300, 20)),
                                         text=str(data["timeToStationMins"]) +
                                         ' minutes away',
                                         manager=manager, object_id=ObjectID(class_id='@menuItemText'))
@@ -339,6 +339,7 @@ while is_running:
         homeImgUndr = window_surface.blit(homeBlueTFL, (600, 140))
         ldnSkylineHome = window_surface.blit(skyline, (0, 600))
 
+    # update bus times every 60 seconds
     elif page == "henriques street":
         end = time.time()
         # refresh screen every minute
