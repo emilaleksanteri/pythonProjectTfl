@@ -36,6 +36,8 @@ skyline = pygame.image.load('./images/ldnSkyline.png')
 
 page = "home"
 
+# clears entire screen
+
 
 def clear():
     global window_surface, background, manager
@@ -128,6 +130,8 @@ metropolitanBtn = UIButton(relative_rect=pygame.Rect((35, 240), (300, 27)),
                            container=underground,
                            manager=manager, object_id=ObjectID(class_id='@LineNameMetro'))
 
+# makes home screen
+
 
 def generateMenu():
     clear()
@@ -201,6 +205,7 @@ def generateMenu():
                                manager=manager, object_id=ObjectID(class_id='@LineNameMetro'))
 
 
+# make menu element on top of screen
 def generateTopBar():
     global transport, headerPanel, forLdn
 
@@ -218,6 +223,7 @@ def generateTopBar():
                       manager=manager, object_id=ObjectID(class_id='@headerText'))
 
 
+# bus time view
 def showTimesForStop(stationData, stationName, stopLetter):
     # to get back to the home screen
     global transport, page
