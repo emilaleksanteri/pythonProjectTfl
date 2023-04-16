@@ -3,6 +3,7 @@ import pygame
 from stopTimes import StopTimes
 from pygame_gui.core import ObjectID
 from pygame_gui.elements import UIPanel, UIButton, UILabel
+import time
 
 # styles reference: https://pygame-gui.readthedocs.io/en/latest/theme_guide.html
 
@@ -20,7 +21,7 @@ aldgateEastUnderground = StopTimes("940GZZLUADE")
 
 width = 1000
 height = 800
-bgColor = (245, 247, 246)
+bgColor = (255, 255, 255)
 
 pygame.init()
 pygame.display.set_caption('Transport Near Hult')
@@ -217,33 +218,82 @@ def generateTopBar():
                       manager=manager, object_id=ObjectID(class_id='@headerText'))
 
 
-def showTimesForStop(stationData, stationName):
+def showTimesForStop(stationData, stationName, stopLetter):
+    # to get back to the home screen
+    global transport, page
+    page = stationName.lower()
     clear()
     generateTopBar()
     getData = stationData.getStationData()
-    row = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((0, 80), (1200, 40)),
-                                       text=stationName,
-                                       manager=manager)
-    yPos = 120
+    transport = UIButton(relative_rect=pygame.Rect((50, 150), (250, 40)),
+                         text="Back",
+                         manager=manager, object_id=ObjectID(class_id='@backHomeText'))
+
+    station = UILabel(relative_rect=pygame.Rect((58, 200), (250, 20)),
+                      text=stationName,
+                      manager=manager, object_id=ObjectID(class_id='@menuItemText'))
+
+    stop = UILabel(relative_rect=pygame.Rect((58, 220), (250, 20)),
+                   text=stopLetter,
+                   manager=manager, object_id=ObjectID(class_id='@stopLetter'))
+
+    yAxisBusses = 250
+    uniqueNumbers = []
     for data in getData:
-        row = pygame_gui.elements.UILabel(relative_rect=pygame.Rect((0, yPos), (1200, 40)),
-                                          text='Line Name: ' +
-                                          data["lineName"] + ' '
-                                          + 'Platform: ' +
-                                          data["platFormName"] + ' '
-                                          + 'Directiom: ' +
-                                          data["direction"] + ' '
-                                          + 'Towards: ' +
-                                          data["goingTowards"] + ' '
-                                          + 'Final Destination: ' +
-                                          data["finalDestination"] + ' '
-                                          + 'At stop in: ' +
-                                          str(data["timeToStationMins"]) +
-                                          ' mins ',
-                                          manager=manager)
-        yPos += 40
+        if data["lineName"] not in uniqueNumbers:
+            bus = pygame.image.load('./images/bus.png')
+            uniqueNumbers.append(data["lineName"])
+            busNumberContainer = UIPanel(relative_rect=pygame.Rect((58, yAxisBusses), (60, 60)),
+                                         manager=manager, object_id=ObjectID(class_id='@busNumber'))
+
+            busNumber = UILabel(relative_rect=pygame.Rect((0, 0), (30, 30)),
+                                text=data["lineName"], container=busNumberContainer,
+                                manager=manager, object_id=ObjectID(class_id='@busNumberTxt'))
+
+            finalDestination = UILabel(relative_rect=pygame.Rect((130, yAxisBusses), (400, 20)),
+                                       text='To ' + data["finalDestination"],
+                                       manager=manager, object_id=ObjectID(class_id='@menuItemText'))
+
+            towards = UILabel(relative_rect=pygame.Rect((130, yAxisBusses + 20), (400, 20)),
+                              text='Towards ' + data["goingTowards"],
+                              manager=manager, object_id=ObjectID(class_id='@menuItemText'))
+
+            direction = UILabel(relative_rect=pygame.Rect((130, yAxisBusses + 40), (400, 20)),
+                                text=data["direction"],
+                                manager=manager, object_id=ObjectID(class_id='@menuItemText'))
+
+            if data["timeToStationMins"] < 15:
+                line = UIPanel(relative_rect=pygame.Rect((400, yAxisBusses + 40), (300, 5)),
+                               manager=manager, object_id=ObjectID(class_id='@busNumber'))
+
+                stopToLine = UIPanel(relative_rect=pygame.Rect((696, yAxisBusses + 25), (5, 30)),
+                                     manager=manager, object_id=ObjectID(class_id='@busNumber'))
+
+                stopLabel = UILabel(relative_rect=pygame.Rect((710, yAxisBusses + 30), (100, 20)),
+                                    text='Stop',
+                                    manager=manager, object_id=ObjectID(class_id='@menuItemText'))
+
+                grid_image = pygame_gui.elements.UIImage(
+                    relative_rect=pygame.Rect(
+                        (700 - (data["timeToStationMins"] * 20) - 42, yAxisBusses - 5), (42, 46)),
+                    image_surface=bus,
+                    manager=manager,
+                )
+
+                timeToStation = UILabel(relative_rect=pygame.Rect((500, yAxisBusses + 50), (300, 20)),
+                                        text=str(data["timeToStationMins"]) +
+                                        ' minutes away',
+                                        manager=manager, object_id=ObjectID(class_id='@menuItemText'))
+            else:
+                timeToStation = UILabel(relative_rect=pygame.Rect((400, yAxisBusses + 40), (300, 20)),
+                                        text=str(data["timeToStationMins"]) +
+                                        ' minutes away',
+                                        manager=manager, object_id=ObjectID(class_id='@menuItemText'))
+
+            yAxisBusses += 100
 
 
+timer = 0
 clock = pygame.time.Clock()
 is_running = True
 while is_running:
@@ -255,6 +305,26 @@ while is_running:
         if event.type == pygame_gui.UI_BUTTON_PRESSED:
             if event.ui_element == transport or event.ui_element == forLdn:
                 generateMenu()
+
+            if event.ui_element == henriquesStreetBtn:
+                showTimesForStop(
+                    henriquesStreet, "Henriques Street", "Stop P")
+                timer = time.time()
+
+            if event.ui_element == newRoadBtn:
+                showTimesForStop(
+                    newRoad, "New Road", "Stop Q")
+                timer = time.time()
+
+            if event.ui_element == aldgateEastStationBusBtn:
+                showTimesForStop(
+                    aldgateEastStationBus, "Aldgate East Station", "Stop E")
+                timer = time.time()
+
+            if event.ui_element == altabAliParkBtn:
+                showTimesForStop(
+                    altabAliPark, "Altab Ali Park", "Stop D")
+                timer = time.time()
 
         manager.process_events(event)
     manager.update(time_delta)
@@ -268,5 +338,33 @@ while is_running:
         homeImgBus = window_surface.blit(homeBlueTFL, (55, 140))
         homeImgUndr = window_surface.blit(homeBlueTFL, (600, 140))
         ldnSkylineHome = window_surface.blit(skyline, (0, 600))
+
+    elif page == "henriques street":
+        end = time.time()
+        # refresh screen every minute
+        if int(end - timer) % 60 == 0:
+            showTimesForStop(
+                henriquesStreet, "Henriques Street", "Stop P")
+
+    elif page == "new road":
+        end = time.time()
+        # refresh screen every minute
+        if int(end - timer) % 60 == 0:
+            showTimesForStop(
+                newRoad, "New Road", "Stop Q")
+
+    elif page == "aldgate east station":
+        end = time.time()
+        # refresh screen every minute
+        if int(end - timer) % 60 == 0:
+            showTimesForStop(
+                aldgateEastStationBus, "Aldgate East Station", "Stop E")
+
+    elif page == "altab ali park":
+        end = time.time()
+        # refresh screen every minute
+        if int(end - timer) % 60 == 0:
+            showTimesForStop(
+                altabAliPark, "Altab Ali Park", "Stop D")
 
     pygame.display.update()
