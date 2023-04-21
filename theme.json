@@ -48,7 +48,22 @@
             "border_width": "10",
             "shadow_width": "5",
             "shape": "rounded_rectangle"
+            
         },
+        
+        "font": {
+            "name": "arial",
+            "size": "12",
+            "regular_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+           },
+            "bold_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+            }
+        },
+
         "colours":
         {
             "dark_bg":"#BA0000",
@@ -65,13 +80,18 @@
              "hovered_bg":"#f5f7f6",
              "selected_bg":"#f5f7f6"
          },
-         "font":
-         {
-             "name": "montserrat",
-             "size": "12",
-             "bold": "0",
-             "italic": "0"
-         },
+         "font": {
+            "name": "arialmedium",
+            "size": "18",
+            "regular_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-Arial-medium.ttf"
+           },
+            "bold_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-Arial-medium.ttf"
+            }
+       },
          "misc":
          {
              "border_width": "0",
@@ -90,10 +110,18 @@
          },
          "font":
          {
-             "name": "montserrat",
-             "size": "12",
+             "name": "arial",
+             "size": "14",
              "bold": "1",
-             "italic": "0"
+             "regular_resource": {
+                 "package": "fonts",
+                 "resource": "FontsFree-Net-arial-bold.ttf"
+            },
+             "bold_resource": {
+                 "package": "fonts",
+                 "resource": "FontsFree-Net-arial-bold.ttf"
+             }
+ 
          },
          "misc":
          {
@@ -113,10 +141,18 @@
          },
          "font":
          {
-             "name": "montserrat",
-             "size": "12",
+             "name": "arial",
+             "size": "14",
              "bold": "1",
-             "italic": "0"
+             "regular_resource": {
+                 "package": "fonts",
+                 "resource": "FontsFree-Net-arial-bold.ttf"
+            },
+             "bold_resource": {
+                 "package": "fonts",
+                 "resource": "FontsFree-Net-arial-bold.ttf"
+             }
+ 
          },
          "misc":
          {
@@ -179,12 +215,17 @@
         {
             "normal_text": "#2D509F"
         },
-        "font":
-        {
-            "name": "montserrat",
-            "size": "22",
-            "bold": "1",
-            "italic": "0"
+        "font": {
+            "name": "arial",
+            "size": "18",
+            "regular_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+           },
+            "bold_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+            }
         },
         "misc":
          {
@@ -205,12 +246,12 @@
         },
         "font":
         {
-            "name": "montserrat",
+            "name": "arial",
             "size": "22",
             "bold": "1",
             "regular_resource": {
                 "package": "fonts",
-                "resource": "PermanentMarker-Regular.ttf"
+                "resource": "FontsFree-Net-arial-bold.ttf"
            },
             "bold_resource": {
                 "package": "fonts",
@@ -237,9 +278,18 @@
         "font":
         {
             "name": "montserrat",
-            "size": "22",
+            "size": "50",
             "bold": "1",
-            "italic": "0"
+            "italic": "0",
+            "regular_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+           },
+            "bold_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+            }
+            
         },
         "misc":
          {
@@ -262,7 +312,15 @@
             "name": "montserrat",
             "size": "12",
             "bold": "0",
-            "italic": "0"
+            "italic": "0",
+            "regular_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+           },
+            "bold_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+            }
         },
         "misc":
          {
@@ -285,7 +343,16 @@
             "name": "montserrat",
             "size": "22",
             "bold": "1",
-            "italic": "0"
+            "italic": "0",
+            "regular_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+           },
+            "bold_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+            }
+            
         },
         "misc":
          {
@@ -293,6 +360,148 @@
              "shadow_width": "0",
              "text_horiz_alignment": "left"
          }
-    }
+    },
     
+    "@busstopheading":
+    {
+        "colours":
+        {
+            "normal_text": "#000000",
+            "normal_bg":"#2D509F",
+            "hovered_bg":"#2D509F",
+            "selected_bg":"#2D509F"
+        },
+        "font":
+        {
+            "name": "arial",
+            "size": "22",
+            "bold": "1",
+            "italic": "0",
+            "regular_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+           },
+            "bold_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+            }
+            
+        },
+        "misc":
+         {
+             "border_width": "0",
+             "shadow_width": "0",
+             "text_horiz_alignment": "left"
+         }
+    },
+    
+    "@busstopnametext":
+    {
+        "colours":
+        {
+            "normal_text": "#000000",
+            "normal_bg":"#f5f7f6",
+            "hovered_bg":"#f5f7f6",
+            "selected_bg":"#f5f7f6"
+        },
+        "font": {
+           "name": "arial",
+           "size": "14",
+           "regular_resource": {
+               "package": "fonts",
+               "resource": "FontsFree-Net-arial-bold.ttf"
+          },
+           "bold_resource": {
+               "package": "fonts",
+               "resource": "FontsFree-Net-arial-bold.ttf"
+           }
+       }
+    },
+
+        "@busfinaldesttext":
+        {
+            "colours":
+            {
+                "normal_text": "#000000",
+                "normal_bg":"#f5f7f6",
+                "hovered_bg":"#f5f7f6",
+                "selected_bg":"#f5f7f6"
+            },
+            "font": {
+                "name": "arialmedium",
+                "size": "18",
+                "regular_resource": {
+                    "package": "fonts",
+                    "resource": "FontsFree-Net-Arial-medium.ttf"
+               },
+                "bold_resource": {
+                    "package": "fonts",
+                    "resource": "FontsFree-Net-Arial-medium.ttf"
+                }
+           },
+           "misc":
+           {
+               "border_width": "0",
+               "shadow_width": "0",
+               "text_horiz_alignment": "left"
+           }
+         },
+
+         "@busdestinationtext":
+         {
+             "colours":
+             {
+                 "normal_text": "#BA0000",
+                 "normal_bg":"#f5f7f6",
+                 "hovered_bg":"#f5f7f6",
+                 "selected_bg":"#f5f7f6"
+             },
+             "font": {
+                "name": "ariallight",
+                "size": "14",
+                "regular_resource": {
+                    "package": "fonts",
+                    "resource": "Arial MT Std Light.ttf"
+               },
+                "bold_resource": {
+                    "package": "fonts",
+                    "resource": "Arial MT Std Light.ttf"
+                }
+            },
+            "misc":
+            {
+                "border_width": "0",
+                "shadow_width": "0",
+                "text_horiz_alignment": "left"
+            }
+          },
+
+          "@busdirectiontext":
+          {
+              "colours":
+              {
+                  "normal_text": "#000000",
+                  "normal_bg":"#f5f7f6",
+                  "hovered_bg":"#f5f7f6",
+                  "selected_bg":"#f5f7f6"
+              },
+              "font": {
+                 "name": "ariallight",
+                 "size": "14",
+                 "regular_resource": {
+                     "package": "fonts",
+                     "resource": "Arial MT Std Light.ttf"
+                },
+                 "bold_resource": {
+                     "package": "fonts",
+                     "resource": "Arial MT Std Light.ttf"
+                 }
+             },
+             "misc":
+             {
+                 "border_width": "0",
+                 "shadow_width": "0",
+                 "text_horiz_alignment": "left"
+             }
+           }
 }
