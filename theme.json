@@ -208,7 +208,15 @@
             "name": "montserrat",
             "size": "22",
             "bold": "1",
-            "italic": "0"
+            "regular_resource": {
+                "package": "fonts",
+                "resource": "PermanentMarker-Regular.ttf"
+           },
+            "bold_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+            }
+
         },
         "misc":
          {
