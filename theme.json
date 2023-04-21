@@ -173,10 +173,18 @@
          },
          "font":
          {
-             "name": "montserrat",
-             "size": "12",
+             "name": "arial",
+             "size": "14",
              "bold": "1",
-             "italic": "0"
+             "regular_resource": {
+                 "package": "fonts",
+                 "resource": "FontsFree-Net-arial-bold.ttf"
+            },
+             "bold_resource": {
+                 "package": "fonts",
+                 "resource": "FontsFree-Net-arial-bold.ttf"
+             }
+ 
          },
          "misc":
          {
@@ -196,10 +204,18 @@
          },
          "font":
          {
-             "name": "montserrat",
-             "size": "12",
+             "name": "arial",
+             "size": "14",
              "bold": "1",
-             "italic": "0"
+             "regular_resource": {
+                 "package": "fonts",
+                 "resource": "FontsFree-Net-arial-bold.ttf"
+            },
+             "bold_resource": {
+                 "package": "fonts",
+                 "resource": "FontsFree-Net-arial-bold.ttf"
+             }
+ 
          },
          "misc":
          {

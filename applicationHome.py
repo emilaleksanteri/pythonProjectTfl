@@ -65,7 +65,7 @@ forLdn = UIButton(relative_rect=pygame.Rect((60, 30), (250, 40)),
                   manager=manager, object_id=ObjectID(class_id='@headerText'))
 
 
-# busses
+#-------------------BUSES
 busRoutesLbl = UILabel(relative_rect=pygame.Rect((100, 116), (250, 80)),
                        text="Bus Routes",
                        manager=manager, object_id=ObjectID(class_id='@menuHeaderLabel'))
@@ -74,27 +74,27 @@ busRoutes = UIPanel(relative_rect=pygame.Rect((48, 173), (350, 400)),
                     manager=manager, object_id=ObjectID(class_id='@outlinePanel'))
 
 henriquesStreetBtn = UIButton(relative_rect=pygame.Rect((20, 100), (250, 27)),
-                              text="• Henriques Street (Stop P)",
+                              text="Henriques Street (Stop P)",
                               container=busRoutes,
                               manager=manager, object_id=ObjectID(class_id='@menuItemText'))
 
 newRoadBtn = UIButton(relative_rect=pygame.Rect((20, 150), (250, 27)),
-                      text="• New Road (Stop Q)",
+                      text="New Road (Stop Q)",
                       container=busRoutes,
                       manager=manager, object_id=ObjectID(class_id='@menuItemText'))
 
 
 aldgateEastStationBusBtn = UIButton(relative_rect=pygame.Rect((20, 200), (280, 27)),
-                                    text="• Aldgate East Station (Stop E)",
+                                    text="Aldgate East Station (Stop E)",
                                     container=busRoutes,
                                     manager=manager, object_id=ObjectID(class_id='@menuItemText'))
 
 altabAliParkBtn = UIButton(relative_rect=pygame.Rect((20, 250), (250, 27)),
-                           text="• Altab Ali Park (Stop D)",
+                           text="Altab Ali Park (Stop D)",
                            container=busRoutes,
                            manager=manager, object_id=ObjectID(class_id='@menuItemText'))
 
-# underground
+#-------------------UNDERGROUND
 undergrndRoutesLbl = UILabel(relative_rect=pygame.Rect((645, 116), (250, 80)),
                              text="Underground",
                              manager=manager, object_id=ObjectID(class_id='@menuHeaderLabel'))
@@ -103,7 +103,7 @@ underground = UIPanel(relative_rect=pygame.Rect((600, 173), (350, 400)),
                       manager=manager, object_id=ObjectID(class_id='@outlinePanel'))
 
 aldgateEstUnderGrndBtn = UIButton(relative_rect=pygame.Rect((20, 100), (300, 30)),
-                                  text="• Aldgate East Underground Station",
+                                  text="Aldgate East Underground Station",
                                   container=underground,
                                   manager=manager, object_id=ObjectID(class_id='@menuItemText'))
 
@@ -118,7 +118,7 @@ districtBtn = UIButton(relative_rect=pygame.Rect((35, 150), (300, 30)),
                        manager=manager, object_id=ObjectID(class_id='@LineNameDist'))
 
 aldgateUnderGrndBtn = UIButton(relative_rect=pygame.Rect((20, 200), (300, 30)),
-                               text="• Aldgate Underground Station",
+                               text="Aldgate Underground Station",
                                container=underground,
                                manager=manager, object_id=ObjectID(class_id='@menuItemText'))
 
@@ -150,22 +150,22 @@ def generateMenu():
                         manager=manager, object_id=ObjectID(class_id='@outlinePanel'))
 
     henriquesStreetBtn = UIButton(relative_rect=pygame.Rect((20, 100), (250, 30)),
-                                  text="• Henriques Street (Stop P)",
+                                  text="Henriques Street (Stop P)",
                                   container=busRoutes,
                                   manager=manager, object_id=ObjectID(class_id='@menuItemText'))
 
     newRoadBtn = UIButton(relative_rect=pygame.Rect((20, 150), (250, 27)),
-                          text="• New Road (Stop Q)",
+                          text="New Road (Stop Q)",
                           container=busRoutes,
                           manager=manager, object_id=ObjectID(class_id='@menuItemText'))
 
     aldgateEastStationBusBtn = UIButton(relative_rect=pygame.Rect((20, 200), (280, 30)),
-                                        text="• Aldgate East Station (Stop E)",
+                                        text="Aldgate East Station (Stop E)",
                                         container=busRoutes,
                                         manager=manager, object_id=ObjectID(class_id='@menuItemText'))
 
     altabAliParkBtn = UIButton(relative_rect=pygame.Rect((20, 250), (250, 30)),
-                               text="• Altab Ali Park (Stop D)",
+                               text="Altab Ali Park (Stop D)",
                                container=busRoutes,
                                manager=manager, object_id=ObjectID(class_id='@menuItemText'))
 
@@ -177,7 +177,7 @@ def generateMenu():
                           manager=manager, object_id=ObjectID(class_id='@outlinePanel'))
 
     aldgateEstUnderGrndBtn = UIButton(relative_rect=pygame.Rect((20, 100), (300, 30)),
-                                  text="• Aldgate East Underground Station",
+                                  text="Aldgate East Underground Station",
                                   container=underground,
                                   manager=manager, object_id=ObjectID(class_id='@menuItemText'))
 
@@ -192,7 +192,7 @@ def generateMenu():
                            manager=manager, object_id=ObjectID(class_id='@LineNameDist'))
     
     aldgateUnderGrndBtn = UIButton(relative_rect=pygame.Rect((20, 200), (300, 30)),
-                                   text="• Aldgate Underground Station",
+                                   text="Aldgate Underground Station",
                                    container=underground,
                                    manager=manager, object_id=ObjectID(class_id='@menuItemText'))
     
