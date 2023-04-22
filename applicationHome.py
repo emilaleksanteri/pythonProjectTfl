@@ -17,7 +17,13 @@ aldgateEastStationBus = StopTimes("490000004E")
 # Altab Ali Park (Stop D)
 altabAliPark = StopTimes("490006827W")
 # The underground
-aldgateEastUnderground = StopTimes("940GZZLUADE")
+aldgateEastUnderground1 = StopTimes("940GZZLUADE1")
+aldgateEastUnderground2 = StopTimes("940GZZLUADE2")
+aldgateUndergroundMetro1 = StopTimes("9400ZZLUALD1")
+aldgateUndergroundCircle1 = StopTimes("9400ZZLUALD2")
+aldgateUndergroundCircle2 = StopTimes("9400ZZLUALD3")
+aldgateUndergroundMetro2 = StopTimes("9400ZZLUALD4")
+
 
 width = 1000
 height = 800
@@ -25,7 +31,7 @@ bgColor = (255, 255, 255)
 
 pygame.init()
 pygame.display.set_caption('Transport Near Hult')
-programIcon = pygame.image.load('./images/logo.png')
+programIcon = pygame.image.load('./images/logo.ico')
 pygame.display.set_icon(programIcon)
 window_surface = pygame.display.set_mode((width, height))
 background = pygame.Surface((width, height))
@@ -313,7 +319,7 @@ while is_running:
         if event.type == pygame_gui.UI_BUTTON_PRESSED:
             if event.ui_element == transport or event.ui_element == forLdn:
                 generateMenu()
-
+#-------BUSES EVENTS
             if event.ui_element == henriquesStreetBtn:
                 showTimesForStop(
                     henriquesStreet, "Henriques Street", "Stop P")
@@ -333,6 +339,7 @@ while is_running:
                 showTimesForStop(
                     altabAliPark, "Altab Ali Park", "Stop D")
                 timer = time.time()
+#-------UNDERGROUND EVENTS
 
         manager.process_events(event)
     manager.update(time_delta)
