@@ -32,8 +32,7 @@
         "misc":
         {
             "border_width": "10",
-            "shadow_width": "5",
-            "shape": "rounded_rectangle"
+            "shadow_width": "0"
         },
         "colours":
         {
@@ -41,6 +40,36 @@
             "normal_border": "#2D509F"
         }
     },
+
+    "@hamPanel":
+    {
+        "misc":
+        {
+            "border_width": "10",
+            "shadow_width": "0"
+        },
+        "colours":
+        {
+            "dark_bg":"#D799AF",
+            "normal_border": "#D799AF"
+        }
+    },
+
+    "@distPanel":
+    {
+        "misc":
+        {
+            "border_width": "10",
+            "shadow_width": "5",
+            "shape": "rounded_rectangle"
+        },
+        "colours":
+        {
+            "dark_bg":"#007229",
+            "normal_border": "#007229"
+        }
+    },
+
     "@busNumber":
     {
         "misc":
@@ -68,6 +97,36 @@
         {
             "dark_bg":"#BA0000",
             "normal_border": "#BA0000"
+        }
+    },
+
+    "@underGroundLine":
+    {
+        "misc":
+        {
+            "border_width": "2",
+            "shadow_width": "0",
+            "shape": "rounded_rectangle"
+            
+        },
+        
+        "font": {
+            "name": "arial",
+            "size": "5",
+            "regular_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+           },
+            "bold_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+            }
+        },
+
+        "colours":
+        {
+            "dark_bg":"#000000",
+            "normal_border": "#000000"
         }
     },
 
@@ -383,6 +442,72 @@
         "colours":
         {
             "normal_text": "#000000",
+            "normal_bg":"#2D509F",
+            "hovered_bg":"#2D509F",
+            "selected_bg":"#2D509F"
+        },
+        "font":
+        {
+            "name": "arial",
+            "size": "22",
+            "bold": "1",
+            "italic": "0",
+            "regular_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+           },
+            "bold_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+            }
+            
+        },
+        "misc":
+         {
+             "border_width": "0",
+             "shadow_width": "0",
+             "text_horiz_alignment": "left"
+         }
+    },
+
+    "@undergroundHam":
+    {
+        "colours":
+        {
+            "normal_text": "#D799AF",
+            "normal_bg":"#2D509F",
+            "hovered_bg":"#2D509F",
+            "selected_bg":"#2D509F"
+        },
+        "font":
+        {
+            "name": "arial",
+            "size": "22",
+            "bold": "1",
+            "italic": "0",
+            "regular_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+           },
+            "bold_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+            }
+            
+        },
+        "misc":
+         {
+             "border_width": "0",
+             "shadow_width": "0",
+             "text_horiz_alignment": "left"
+         }
+    },
+
+    "@undergroundDist":
+    {
+        "colours":
+        {
+            "normal_text": "#007229",
             "normal_bg":"#2D509F",
             "hovered_bg":"#2D509F",
             "selected_bg":"#2D509F"
