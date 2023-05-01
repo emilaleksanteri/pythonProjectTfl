@@ -27,15 +27,17 @@ class StopTimes:
         stopData = []
 
         for line in asDict:
-            dataDict = {
-                "lineName": line["lineName"],
-                "stationName": line["stationName"],
-                "platFormName": line["platformName"],
-                "direction": line["direction"],
-                "goingTowards": line["towards"],
-                "finalDestination": line["destinationName"],
-                "timeToStationMins": int(line["timeToStation"]/60)
-            }
+            if "lineName" in line and "stationName" in line and "platformName" in line and "direction" in line and "towards" in line and "destinationName" in line and "timeToStation" in line:
+                dataDict = {
+                    "lineName": line["lineName"],
+                    "stationName": line["stationName"],
+                    "platFormName": line["platformName"],
+                    "direction": line['direction'],
+                    "goingTowards": line["towards"],
+                    "finalDestination": line["destinationName"],
+                    "timeToStationMins": int(line["timeToStation"]/60)
+                }
+
             stopData.append(dataDict)
 
         # returns dict list as sorted by time to arrival

@@ -60,13 +60,28 @@
         "misc":
         {
             "border_width": "10",
-            "shadow_width": "5",
+            "shadow_width": "0",
             "shape": "rounded_rectangle"
         },
         "colours":
         {
             "dark_bg":"#007229",
             "normal_border": "#007229"
+        }
+    },
+
+    "@cirPanel":
+    {
+        "misc":
+        {
+            "border_width": "10",
+            "shadow_width": "0",
+            "shape": "rounded_rectangle"
+        },
+        "colours":
+        {
+            "dark_bg":"#FFCE00",
+            "normal_border": "#FFCE00"
         }
     },
 
@@ -508,6 +523,39 @@
         "colours":
         {
             "normal_text": "#007229",
+            "normal_bg":"#2D509F",
+            "hovered_bg":"#2D509F",
+            "selected_bg":"#2D509F"
+        },
+        "font":
+        {
+            "name": "arial",
+            "size": "22",
+            "bold": "1",
+            "italic": "0",
+            "regular_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+           },
+            "bold_resource": {
+                "package": "fonts",
+                "resource": "FontsFree-Net-arial-bold.ttf"
+            }
+            
+        },
+        "misc":
+         {
+             "border_width": "0",
+             "shadow_width": "0",
+             "text_horiz_alignment": "left"
+         }
+    },
+
+    "@undergroundCir":
+    {
+        "colours":
+        {
+            "normal_text": "#FFCE00",
             "normal_bg":"#2D509F",
             "hovered_bg":"#2D509F",
             "selected_bg":"#2D509F"

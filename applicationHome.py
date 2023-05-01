@@ -18,6 +18,7 @@ aldgateEastStationBus = StopTimes("490000004E")
 altabAliPark = StopTimes("490006827W")
 # The underground
 aldgateEastUnderground = StopTimes("940GZZLUADE")
+aldgateUnderground = StopTimes("940GZZLUALD")
 
 
 width = 1000
@@ -128,11 +129,6 @@ circleyBtn = UIButton(relative_rect=pygame.Rect((35, 230), (300, 30)),
                       container=underground,
                       manager=manager, object_id=ObjectID(class_id='@LineNameCir'))
 
-metropolitanBtn = UIButton(relative_rect=pygame.Rect((35, 250), (300, 30)),
-                           text="Metropolitan",
-                           container=underground,
-                           manager=manager, object_id=ObjectID(class_id='@LineNameMetro'))
-
 # makes home screen
 
 
@@ -202,11 +198,6 @@ def generateMenu():
                           container=underground,
                           manager=manager, object_id=ObjectID(class_id='@LineNameCir'))
 
-    metropolitanBtn = UIButton(relative_rect=pygame.Rect((35, 250), (300, 30)),
-                               text="Metropolitan",
-                               container=underground,
-                               manager=manager, object_id=ObjectID(class_id='@LineNameMetro'))
-
 
 # make menu element on top of screen
 def generateTopBar():
@@ -233,43 +224,41 @@ def showTimesUnderground(stationData, lineName, stationName):
     page = lineName.lower()
 
     lineNameStyle = "@busstopheading"  # default
-    panel = ""
+    panel = "@cirPanel"
 
     if lineName == "Hammersmith & City":
-        lineNameStyle = "@undergroundHam"
         panel = "@hamPanel"
 
     elif lineName == "District":
-        lineNameStyle = "@undergroundDist"
         panel = "@distPanel"
+
+    elif lineName == "Circle":
+        panel = "@cirPanel"
 
     getData = stationData.getStationData()
 
-    transport = UIButton(relative_rect=pygame.Rect((50, 150), (250, 40)),
+    transport = UIButton(relative_rect=pygame.Rect((50, 100), (250, 40)),
                          text="←",
                          manager=manager, object_id=ObjectID(class_id='@backHomeText'))
 
-    station = UILabel(relative_rect=pygame.Rect((58, 200), (400, 40)),
+    station = UILabel(relative_rect=pygame.Rect((58, 150), (400, 40)),
                       text=stationName,
                       manager=manager, object_id=ObjectID(class_id='@busstopheading'))
 
-    lineNameLbl = UILabel(relative_rect=pygame.Rect((58, 240), (400, 40)),
-                          text=lineName,
-                          manager=manager, object_id=ObjectID(class_id=lineNameStyle))
-
-    undergroundPanel = UIPanel(relative_rect=pygame.Rect((58, 300), (800, 60)),
+    undergroundPanel = UIPanel(relative_rect=pygame.Rect((58, 200), (800, 60)),
                                manager=manager, object_id=ObjectID(class_id=panel))
 
-    panelTxt = UILabel(relative_rect=pygame.Rect((100, 310), (400, 40)),
+    panelTxt = UILabel(relative_rect=pygame.Rect((100, 210), (400, 40)),
                        text=lineName,
                        manager=manager, object_id=ObjectID(class_id="@busstopheading"))
 
-    yAxis = 420
+    yAxis = 300
     uniquePlatforms = []
     for data in getData:
         if data["lineName"] == lineName:
             if data["platFormName"] not in uniquePlatforms:
 
+                # if 1 minute away the minutes text to minute
                 timeText = 'In ' + str(data["timeToStationMins"]) + ' minutes'
                 if data["timeToStationMins"] == 1:
                     timeText = 'In ' + \
@@ -284,7 +273,7 @@ def showTimesUnderground(stationData, lineName, stationName):
                                     text='Next Train',
                                     manager=manager, object_id=ObjectID(class_id='@busfinaldesttext'))
 
-                finalDestination = UILabel(relative_rect=pygame.Rect((450, yAxis), (400, 20)),
+                finalDestination = UILabel(relative_rect=pygame.Rect((450, yAxis), (500, 20)),
                                            text='To ' +
                                            data["finalDestination"],
                                            manager=manager, object_id=ObjectID(class_id='@busfinaldesttext'))
@@ -293,10 +282,10 @@ def showTimesUnderground(stationData, lineName, stationName):
                                     text=timeText,
                                     manager=manager, object_id=ObjectID(class_id='@busfinaldesttext'))
 
-                line = UIPanel(relative_rect=pygame.Rect((58, yAxis + 80), (800, 2)),
+                line = UIPanel(relative_rect=pygame.Rect((58, yAxis + 60), (800, 2)),
                                manager=manager, object_id=ObjectID(class_id='@underGroundLine'))
 
-                yAxis += 150
+                yAxis += 100
 
 
 # bus time view
@@ -417,6 +406,10 @@ while is_running:
             if event.ui_element == districtBtn:
                 showTimesUnderground(
                     aldgateEastUnderground, "District", "Aldgate East Underground Station")
+
+            if event.ui_element == circleyBtn:
+                showTimesUnderground(
+                    aldgateUnderground, "Circle", "Aldgate Underground Station")
 
     manager.process_events(event)
     manager.update(time_delta)
