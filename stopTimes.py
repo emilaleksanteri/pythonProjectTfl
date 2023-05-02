@@ -19,8 +19,10 @@ class StopTimes:
 
             req.get_method = lambda: 'GET'
             response = urllib.request.urlopen(req)
+
+        # if api errors for whatever reason, let program know that something went wrong
         except Exception as e:
-            print(e)
+            return 'error'
 
         asDict = json.loads(response.read().decode())
 
