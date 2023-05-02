@@ -136,7 +136,7 @@ def generateMenu():
     clear()
     generateTopBar()
 
-    global page, busRoutesLbl, busRoutes, henriquesStreetBtn, newRoadBtn, aldgateEastStationBusBtn, altabAliParkBtn, undergrndRoutesLbl, underground, aldgateEstUnderGrndBtn, hamSmithCityBtn, districtBtn, aldgateUnderGrndBtn, circleyBtn, metropolitanBtn
+    global page, busRoutesLbl, busRoutes, henriquesStreetBtn, newRoadBtn, aldgateEastStationBusBtn, altabAliParkBtn, undergrndRoutesLbl, underground, aldgateEstUnderGrndBtn, hamSmithCityBtn, districtBtn, aldgateUnderGrndBtn, circleyBtn
     page = "home"
 
     busRoutesLbl = UILabel(relative_rect=pygame.Rect((100, 116), (250, 80)),
