@@ -58,7 +58,7 @@ class Pages:
                     if data["platFormName"] not in uniquePlatforms:
 
                         # if 1 minute away the minutes text to minute
-                        timeText = 'In ' + \
+                        timeText = 'At platform in ' + \
                             str(data["timeToStationMins"]) + ' minutes'
                         if data["timeToStationMins"] == 1:
                             timeText = 'In ' + \
@@ -70,7 +70,7 @@ class Pages:
                                                 manager=self.manager, object_id=ObjectID(class_id='@busstopheading'))
 
                         self.nextTrain = UILabel(relative_rect=pygame.Rect((450, yAxis - 30), (400, 20)),
-                                                 text='Next Train',
+                                                 text=data["currentlyAt"],
                                                  manager=self.manager, object_id=ObjectID(class_id='@busfinaldesttext'))
 
                         self.finalDestination = UILabel(relative_rect=pygame.Rect((450, yAxis), (500, 20)),

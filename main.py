@@ -10,6 +10,7 @@ from stopTimes import StopTimes
     "goingTowards": string
     "finalDestination": string
     "timeToStationMins": int
+    "currentlyAt": string
 }]
 '''
 

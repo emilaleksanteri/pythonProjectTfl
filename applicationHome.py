@@ -42,11 +42,12 @@ skyline = pygame.image.load('./images/ldnSkyline.png')
 
 # initialize home
 home = Initialize(manager)
+
+# init pages
 pages = Pages(manager)
 
+
 # remake home screen
-
-
 def makeHome():
     clear()
     home.generateMenu(manager)
