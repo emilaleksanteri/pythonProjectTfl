@@ -70,7 +70,7 @@ class Initialize:
                                         container=self.underground,
                                         manager=self.manager, object_id=ObjectID(class_id='@LineNameHam'))
 
-        self.districtBtn = UIButton(relative_rect=pygame.Rect((35, 150), (300, 30)),
+        self.districtBtn = UIButton(relative_rect=pygame.Rect((35, 160), (300, 30)),
                                     text="District",
                                     container=self.underground,
                                     manager=self.manager, object_id=ObjectID(class_id='@LineNameDist'))
@@ -152,7 +152,7 @@ class Initialize:
                                         container=self.underground,
                                         manager=manager, object_id=ObjectID(class_id='@LineNameHam'))
 
-        self.districtBtn = UIButton(relative_rect=pygame.Rect((35, 150), (300, 30)),
+        self.districtBtn = UIButton(relative_rect=pygame.Rect((35, 160), (300, 30)),
                                     text="District",
                                     container=self.underground,
                                     manager=manager, object_id=ObjectID(class_id='@LineNameDist'))
