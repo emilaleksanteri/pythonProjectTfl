@@ -29,7 +29,11 @@ class StopTimes:
         stopData = []
 
         for line in asDict:
-            if "lineName" in line and "stationName" in line and "platformName" in line and "direction" in line and "towards" in line and "destinationName" in line and "timeToStation" in line and "currentLocation" in line:
+            if ("lineName" in line and "stationName" in line
+                and "platformName" in line and "direction" in line
+                and "towards" in line and "destinationName" in line
+                    and "timeToStation" in line and "currentLocation" in line):
+
                 dataDict = {
                     "lineName": line["lineName"],
                     "stationName": line["stationName"],
