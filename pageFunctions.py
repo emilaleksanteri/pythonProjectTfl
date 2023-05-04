@@ -61,7 +61,7 @@ class Pages:
                         timeText = 'At platform in ' + \
                             str(data["timeToStationMins"]) + ' minutes'
                         if data["timeToStationMins"] == 1:
-                            timeText = 'In ' + \
+                            timeText = 'At platform in ' + \
                                 str(data["timeToStationMins"]) + ' minute'
 
                         uniquePlatforms.append(data["platFormName"])
